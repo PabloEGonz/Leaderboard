@@ -19,6 +19,7 @@ h1 {
   margin: 5%;
   font-size: 39px;
 }
+
 h2 {
   font-size: 25px;
 }
@@ -26,6 +27,7 @@ h2 {
 .leaderboard-table {
   min-width: 25%;
 }
+
 .recent {
   align-items: center;
   justify-content: space-between;
@@ -42,6 +44,7 @@ h2 {
   border: 1px solid black;
   padding: 1%;
 }
+
 #list-container li {
   font-size: 18px;
   padding: 4px;
