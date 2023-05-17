@@ -78,12 +78,12 @@ input {
 
 .success {
   color: green;
-  animation: message 4s linear;
+  animation: message 3.5s linear;
 }
 
 .error {
   color: red;
-  animation: message 4s linear;
+  animation: message 3.5s linear;
 }
 
 @keyframes message {
