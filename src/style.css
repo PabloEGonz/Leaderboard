@@ -48,6 +48,8 @@ h2 {
 #list-container li {
   font-size: 18px;
   padding: 4px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #list-container li:nth-child(odd) {
@@ -72,4 +74,29 @@ input {
   padding: 1.5%;
   width: 25%;
   align-self: flex-end;
+}
+
+.success {
+  color: green;
+  animation: message 4s linear;
+}
+
+.error {
+  color: red;
+  animation: message 4s linear;
+}
+
+@keyframes message {
+  25% {
+    transform: translateY(-10px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
 }
