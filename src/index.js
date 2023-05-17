@@ -2,12 +2,11 @@ import './style.css';
 
 const refresh = document.querySelector('#refresh');
 const listContainer = document.querySelector('#list-container');
-//change name
-const get = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Iv4RO4M90HFElzEus2q3/scores/';
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Iv4RO4M90HFElzEus2q3/scores/';
 
-refresh.addEventListener('click', () => getScores(get));
+refresh.addEventListener('click', () => getScores(url));
 
-async function getScores(file) {
+const getScores = async (file) => {
     let resp = await fetch(file);
     let response = await resp.json();
     listContainer.innerHTML = '';
@@ -17,14 +16,37 @@ async function getScores(file) {
         listContainer.appendChild(list);
     });
 }
+getScores(url);
 
 
 
 const submit = document.querySelector('#submit');
 
-submit.addEventListener('click', () => console.log('clicked'));
 
-async function addScore(file){
 
+const addScore = async (file, data) => {
+    const responses = await fetch(file, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    return responses.json();
 }
+
+submit.addEventListener('click', (e) => {
+    e.preventDefault();
+    const nameV = document.querySelector('#name').value;
+    const scoreV = document.querySelector('#score').value;
+    addScore(url, {
+        user: `${nameV}`,
+        score: scoreV
+    }).then((data) => {
+        console.log(data.message)
+    })
+        .catch((data) => {
+            console.log('error' + data.message)
+        })
+});
 
