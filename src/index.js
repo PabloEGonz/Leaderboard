@@ -12,7 +12,7 @@ const getScores = async (file) => {
     listContainer.innerHTML = '';
     response.result.forEach(ele => {
         const list = document.createElement('li');
-        list.innerHTML = `${ele.user}&nbsp &nbsp &nbsp &nbsp &nbsp ${ele.score}`
+        list.innerHTML = `<spam>${ele.user}</spam><spam>${ele.score}</spam>`
         listContainer.appendChild(list);
     });
 }
@@ -22,8 +22,6 @@ getScores(url);
 
 const submit = document.querySelector('#submit');
 
-
-
 const addScore = async (file, data) => {
     const responses = await fetch(file, {
         method: "POST",
@@ -32,7 +30,7 @@ const addScore = async (file, data) => {
         },
         body: JSON.stringify(data),
     })
-    return responses.json();
+
 }
 
 submit.addEventListener('click', (e) => {
@@ -42,11 +40,8 @@ submit.addEventListener('click', (e) => {
     addScore(url, {
         user: `${nameV}`,
         score: scoreV
-    }).then((data) => {
-        console.log(data.message)
     })
-        .catch((data) => {
-            console.log('error' + data.message)
-        })
 });
+
+
 
