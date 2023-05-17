@@ -33,20 +33,17 @@ const addScore = async (file, data) => {
     });
     return responses.json();
 };
+let name = document.querySelector('#name');
+let score = document.querySelector('#score');
 
 submit.addEventListener('click', (e) => {
     e.preventDefault();
-    let name = document.querySelector('#name');
-    let score = document.querySelector('#score');
     addScore(url, {
         user: `${name.value}`,
         score: score.value,
     }).then((data) => {
         displayMessage(data);
     })
-    name.value = '';
-    score.value = '';
-
 });
 
 const messageC = document.querySelector('#message-container')
@@ -57,6 +54,8 @@ const displayMessage = (mes) => {
     if (mes.result) {
         text.innerHTML = mes.result;
         text.classList.add('success');
+        name.value = '';
+        score.value = '';
     } else {
         text.innerHTML = mes.message;
         text.classList.add('error');
