@@ -66,7 +66,7 @@ button:hover {
   list-style: none;
   border: 1px solid black;
   padding: 1%;
-  height: 50vh;
+  max-height: 50vh;
   border-radius: 10px;
   overflow-y: auto;
   --sb-track-color: #fff;
@@ -74,6 +74,7 @@ button:hover {
   --sb-size: 4px;
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
+
 #list-container::-webkit-scrollbar {
   width: var(--sb-size);
 }
