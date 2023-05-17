@@ -33,17 +33,6 @@ const addScore = async (file, data) => {
 };
 const name = document.querySelector('#name');
 const score = document.querySelector('#score');
-
-submit.addEventListener('click', (e) => {
-  e.preventDefault();
-  addScore(url, {
-    user: `${name.value}`,
-    score: score.value,
-  }).then((data) => {
-    displayMessage(data);
-  });
-});
-
 const messageC = document.querySelector('#message-container');
 
 const displayMessage = (mes) => {
@@ -59,5 +48,17 @@ const displayMessage = (mes) => {
     text.classList.add('error');
   }
   messageC.appendChild(text);
-  setTimeout(() => messageC.innerHTML = '', 3000);
+  setTimeout(() => {
+    messageC.innerHTML = '';
+  }, 3000);
 };
+
+submit.addEventListener('click', (e) => {
+  e.preventDefault();
+  addScore(url, {
+    user: `${name.value}`,
+    score: score.value,
+  }).then((data) => {
+    displayMessage(data);
+  });
+});

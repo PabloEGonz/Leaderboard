@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -15,6 +16,7 @@ body {
   background-color: #73777a;
   font-family: "Lato", sans-serif;
 }
+
 .main {
   justify-content: space-around;
   align-items: start;
@@ -69,9 +71,11 @@ button:hover {
   max-height: 50vh;
   border-radius: 10px;
   overflow-y: auto;
+
   --sb-track-color: #fff;
   --sb-thumb-color: #484949;
   --sb-size: 4px;
+
   scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
 }
 
@@ -134,7 +138,6 @@ input {
   position: absolute;
   bottom: 10px;
   text-shadow: 3px 3px 15px black;
-  text-align: center;
   text-align: center;
 }
 
