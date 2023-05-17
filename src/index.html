@@ -15,15 +15,14 @@
             <h2>Recent scores</h2>
             <button id="refresh" type="button">Refresh</button>
           </div>
-          <ul class="container col" id="list-container">
-
-          </ul>
+          <ul class="container col" id="list-container"></ul>
         </section>
-        <form action="" class="form container col">
+        <form action="post" class="form container col">
           <h2>Add your score</h2>
-          <input type="text" placeholder="Your name" />
-          <input type="text" placeholder="Your score" />
+          <input required id="name" type="text" placeholder="Your name" />
+          <input required id="score" type="number" placeholder="Your score" />
           <button id="submit" type="submit">Submit</button>
+          <p id="message-container"></p>
         </form>
       </div>
     </main>
