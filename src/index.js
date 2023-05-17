@@ -2,9 +2,7 @@ import './style.css';
 
 const refresh = document.querySelector('#refresh');
 const listContainer = document.querySelector('#list-container');
-// const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Iv4RO4M90HFElzEus2q3/scores/';
-const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/WhSVZJ1hNHtociMUBK4l/scores/';
-
+const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Iv4RO4M90HFElzEus2q3/scores/';
 
 const getScores = async (file) => {
     const resp = await fetch(file);
@@ -16,8 +14,8 @@ const getScores = async (file) => {
         listContainer.appendChild(list);
     });
 };
-document.addEventListener("DOMContentLoaded", () => getScores(url));
 
+document.addEventListener("DOMContentLoaded", () => getScores(url));
 
 refresh.addEventListener('click', () => getScores(url));
 
@@ -33,8 +31,8 @@ const addScore = async (file, data) => {
     });
     return responses.json();
 };
-let name = document.querySelector('#name');
-let score = document.querySelector('#score');
+const name = document.querySelector('#name');
+const score = document.querySelector('#score');
 
 submit.addEventListener('click', (e) => {
     e.preventDefault();
@@ -61,6 +59,5 @@ const displayMessage = (mes) => {
         text.classList.add('error');
     }
     messageC.appendChild(text)
-
     setTimeout(() => messageC.innerHTML = '', 3000);
 };
