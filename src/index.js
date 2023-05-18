@@ -14,28 +14,51 @@ const getScores = async (file) => {
     listContainer.appendChild(list);
   });
 };
-getScores(url);
+
+document.addEventListener('DOMContentLoaded', () => getScores(url));
 
 refresh.addEventListener('click', () => getScores(url));
 
 const submit = document.querySelector('#submit');
 
 const addScore = async (file, data) => {
-  fetch(file, {
+  const responses = await fetch(file, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   });
+  return responses.json();
+};
+const name = document.querySelector('#name');
+const score = document.querySelector('#score');
+const messageC = document.querySelector('#message-container');
+
+const displayMessage = (mes) => {
+  messageC.innerHTML = '';
+  const text = document.createElement('p');
+  if (mes.result) {
+    text.innerHTML = mes.result;
+    text.classList.add('success');
+    name.value = '';
+    score.value = '';
+  } else {
+    text.innerHTML = mes.message;
+    text.classList.add('error');
+  }
+  messageC.appendChild(text);
+  setTimeout(() => {
+    messageC.innerHTML = '';
+  }, 3000);
 };
 
 submit.addEventListener('click', (e) => {
   e.preventDefault();
-  const nameV = document.querySelector('#name').value;
-  const scoreV = document.querySelector('#score').value;
   addScore(url, {
-    user: `${nameV}`,
-    score: scoreV,
+    user: `${name.value}`,
+    score: score.value,
+  }).then((data) => {
+    displayMessage(data);
   });
 });

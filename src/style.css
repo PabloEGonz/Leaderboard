@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -10,22 +12,33 @@
   flex-direction: column;
 }
 
+body {
+  background-color: #73777a;
+  font-family: "Lato", sans-serif;
+}
+
 .main {
   justify-content: space-around;
   align-items: start;
 }
 
 h1 {
+  text-align: center;
   margin: 5%;
-  font-size: 39px;
+  font-size: 2.3rem;
+  color: #f0f5f7;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 1.9rem;
+  color: #f5f5f5;
+  font-family: "Inter", sans-serif;
 }
 
 .leaderboard-table {
-  min-width: 25%;
+  min-width: 30%;
 }
 
 .recent {
@@ -34,32 +47,76 @@ h2 {
   gap: 20px;
 }
 
+button {
+  background-color: #fd7e47;
+  border: 1px solid #2db0f6;
+  color: whitesmoke;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+button:hover {
+  color: #fd7e47;
+  background-color: whitesmoke;
+}
+
 #refresh {
   padding: 2%;
-  width: 20%;
 }
 
 #list-container {
   list-style: none;
   border: 1px solid black;
   padding: 1%;
+  max-height: 50vh;
+  border-radius: 10px;
+  overflow-y: auto;
+
+  --sb-track-color: #fff;
+  --sb-thumb-color: #484949;
+  --sb-size: 4px;
+
+  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+#list-container::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+#list-container::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 15px;
+}
+
+#list-container::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 30px;
 }
 
 #list-container li {
+  color: black;
+  font-weight: 400;
   font-size: 18px;
   padding: 4px;
   display: flex;
   justify-content: space-between;
+  background-color: #a7beaebb;
 }
 
 #list-container li:nth-child(odd) {
-  background-color: #8080808f;
+  background-color: #e6e8d2b8;
 }
 
 form {
-  min-width: 25%;
+  position: relative;
+  width: 30%;
+  height: 30%;
   align-items: center;
   justify-content: center;
+  background-color: #d6d9db6a;
+  padding: 1% 3% 6% 3%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 10px #12111133;
 }
 
 input {
@@ -71,19 +128,29 @@ input {
 }
 
 #submit {
-  padding: 1.5%;
-  width: 25%;
+  padding: 2%;
+  min-width: 26%;
   align-self: flex-end;
 }
 
+#message-container {
+  width: 80%;
+  position: absolute;
+  bottom: 10px;
+  text-shadow: 3px 3px 15px black;
+  text-align: center;
+}
+
 .success {
+  margin: 0;
   color: green;
-  animation: message 4s linear;
+  animation: message 3.5s linear;
 }
 
 .error {
+  margin: 0;
   color: red;
-  animation: message 4s linear;
+  animation: message 3.5s linear;
 }
 
 @keyframes message {
