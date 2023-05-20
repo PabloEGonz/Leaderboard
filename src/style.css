@@ -175,9 +175,11 @@ input {
     flex-direction: column;
     align-items: center;
   }
+
   .leaderboard-table {
     width: 90%;
   }
+
   .form {
     margin: 15% 0;
     width: 90%;

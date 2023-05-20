@@ -1,5 +1,5 @@
 import './style.css';
-import getScores from './modules/getScores.js'
+import getScores from './modules/getScores.js';
 import addScore from './modules/addScore.js';
 import displayMessage from './modules/displayMessage.js';
 
@@ -22,5 +22,3 @@ submit.addEventListener('click', (e) => {
     displayMessage(data);
   });
 });
-
-export {name, score};
