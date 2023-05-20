@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+  <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+  <body>
+    <main>
+      <h1>Leaderboard</h1>
+      <div class="container main">
+        <section class="container leaderboard-table col">
+          <div class="container recent">
+            <h2>Recent scores</h2>
+            <button id="refresh" type="button">Refresh</button>
+          </div>
+          <ul class="container col" id="list-container"></ul>
+        </section>
+        <form action="post" class="form container col">
+          <h2>Add your score</h2>
+          <input id="name" type="text" placeholder="Your name" required />
+          <input id="score" type="number" placeholder="Your score" required />
+          <button id="submit" type="submit">Submit</button>
+          <div id="message-container"></div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
