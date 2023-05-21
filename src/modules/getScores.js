@@ -5,10 +5,11 @@ const getScores = async (file) => {
   const response = await resp.json();
   listContainer.innerHTML = '';
   response.result.sort((a, b) => {
-    const nameA = a.user.toLowerCase(), nameB = b.user.toLowerCase();
-    if (nameA < nameB) return -1
-    else if (nameA < nameB) return 1;
-    else return 0;
+    const nameA = a.user.toLowerCase(); const
+      nameB = b.user.toLowerCase();
+    if (nameA < nameB) return -1;
+    if (nameA < nameB) return 1;
+    return 0;
   });
   response.result.sort((a, b) => b.score - a.score);
   response.result.forEach((ele) => {
